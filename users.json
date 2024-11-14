@@ -11,5 +11,18 @@
             "section3": 40.0,
             "section4": 33.333333333333336
         }
+    },
+    "a": {
+        "username": "a",
+        "surname": "e",
+        "student_number": "1",
+        "attempts": 2,
+        "score": 55.833333333333336,
+        "success_per_section": {
+            "section1": 100.0,
+            "section2": 40.0,
+            "section3": 50.0,
+            "section4": 33.333333333333336
+        }
     }
 }

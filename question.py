@@ -32,7 +32,7 @@ class Question:
         # Sıradaki soruyu al
         selected_question = self.randomized_questions[self.current_question_index]
         self.current_question_index += 1  # Bir sonraki soru için sırayı ilerlet
-
+  
         print(f"Question: {selected_question['question_text']}")
         print(f"Type: {selected_question['type']}")
 
