@@ -16,6 +16,7 @@
         "username": "a",
         "surname": "b",
         "student_number": "1",
+<<<<<<< HEAD
         "attempts": 1,
         "score": 48.34,
         "success_per_section": {
@@ -23,6 +24,93 @@
             "section2": 20.0,
             "section3": 60.0,
             "section4": 53.34
+=======
+        "attempts": 2,
+        "score": 44.17,
+        "success_per_section": {
+            "section1": 80.0,
+            "section2": 20.0,
+            "section3": 50.0,
+            "section4": 26.68
+        }
+    },
+    "w": {
+        "username": "w",
+        "surname": "v",
+        "student_number": "2",
+        "attempts": 2,
+        "score": 0.0,
+        "success_per_section": {
+            "section1": 0.0,
+            "section2": 0.0,
+            "section3": 0.0,
+            "section4": 0.0
+        }
+    },
+    "b": {
+        "username": "b",
+        "surname": "g",
+        "student_number": "5",
+        "attempts": 1,
+        "score": 0,
+        "success_per_section": {
+            "section1": 0,
+            "section2": 0,
+            "section3": 0,
+            "section4": 0
+        }
+    },
+    "y": {
+        "username": "y",
+        "surname": "u",
+        "student_number": "9",
+        "attempts": 1,
+        "score": 0,
+        "success_per_section": {
+            "section1": 0,
+            "section2": 0,
+            "section3": 0,
+            "section4": 0
+        }
+    },
+    "d": {
+        "username": "d",
+        "surname": "l",
+        "student_number": "10",
+        "attempts": 1,
+        "score": 0,
+        "success_per_section": {
+            "section1": 0,
+            "section2": 0,
+            "section3": 0,
+            "section4": 0
+        }
+    },
+    "f": {
+        "username": "f",
+        "surname": "b",
+        "student_number": "21",
+        "attempts": 1,
+        "score": 0,
+        "success_per_section": {
+            "section1": 0,
+            "section2": 0,
+            "section3": 0,
+            "section4": 0
+        }
+    },
+    "v": {
+        "username": "v",
+        "surname": "r",
+        "student_number": "2",
+        "attempts": 1,
+        "score": 35.84,
+        "success_per_section": {
+            "section1": 40.0,
+            "section2": 20.0,
+            "section3": 50.0,
+            "section4": 33.35
+>>>>>>> main
         }
     }
 }
