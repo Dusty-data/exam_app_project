@@ -2,21 +2,12 @@ import random
 import json
 
 class Question:
-<<<<<<< HEAD
-    def __init__(self, section):
-        self.section = section
-        self.questions = self.load_questions()
-        self.randomized_questions = self.randomize_questions()  # Soruları bir kere karıştırıyoruz
-        self.current_question_index = 0  # Sunulacak ilk soru
-        self.question_score = 20  # Her soru için verilecek puan
-=======
     def __init__(self, section, question_score=20):
         self.section = section
         self.question_score = question_score  # Set default score for each question
         self.questions = self.load_questions()
         self.randomized_questions = self.randomize_questions()  # Shuffle questions
         self.current_question_index = 0  # Start with the first question
->>>>>>> main
 
     def load_questions(self):
         try:
@@ -27,38 +18,20 @@ class Question:
             return []
 
     def randomize_questions(self):
-<<<<<<< HEAD
-        """Soruları bir kez rastgele sıraya koyar."""
-=======
         """Shuffle questions for randomization."""
->>>>>>> main
         randomized_questions = self.questions[:]
         random.shuffle(randomized_questions)
         return randomized_questions
 
     def ask_question(self):
-<<<<<<< HEAD
-        # Tüm sorular sorulduysa kullanıcıya bildirim yap
-=======
->>>>>>> main
         if self.current_question_index >= len(self.randomized_questions):
             print("All questions in this section have been asked.")
             return 0
 
-<<<<<<< HEAD
-        # Sıradaki soruyu al
-        selected_question = self.randomized_questions[self.current_question_index]
-        self.current_question_index += 1  # Bir sonraki soru için sırayı ilerlet
-        print(f"Question: {selected_question['question_text']}")
-        print(f"Type: {selected_question['type']}")
-
-        # Tüm seçenekler için numaralandırma
-=======
         selected_question = self.randomized_questions[self.current_question_index]
         self.current_question_index += 1
         print(f"Question: {selected_question['question_text']}")
 
->>>>>>> main
         options_mapping = {}
         if selected_question['type'] == 'True-False':
             options_mapping = {"1": "True", "2": "False"}
@@ -68,10 +41,6 @@ class Question:
         for idx, option in options_mapping.items():
             print(f"{idx}. {option}")
 
-<<<<<<< HEAD
-        # Kullanıcı yanıtını alırken hem metin hem numara desteği
-=======
->>>>>>> main
         user_answer = input("Your answer(s) (You can use numbers or text): ").strip()
         correct_answer = self.get_correct_answer(selected_question)
 
@@ -86,11 +55,7 @@ class Question:
 
         if user_answer_normalized == correct_answer_normalized:
             print("Correct!")
-<<<<<<< HEAD
-            return round(self.question_score, 2)  # Her doğru cevap için yuvarlanmış puan
-=======
             return self.question_score
->>>>>>> main
         else:
             print(f"Wrong! The correct answer is: {correct_answer}")
             return 0
@@ -110,12 +75,7 @@ class Question:
             if answer in correct_answer_set:
                 user_score += score_per_answer
 
-<<<<<<< HEAD
-        # Kullanıcı puanını virgül sonrası iki basamağa yuvarla
-        user_score = round(user_score, 2)  
-=======
         user_score = round(user_score, 2)
->>>>>>> main
         print(f"Your score for this question: {user_score}")
         return user_score
 
@@ -127,7 +87,3 @@ class Question:
         except FileNotFoundError:
             print("Error: 'answers.json' file not found.")
             return ""
-<<<<<<< HEAD
-
-=======
->>>>>>> main
