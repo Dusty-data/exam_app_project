@@ -46,14 +46,14 @@ class User:
                 "surname": self.surname,
                 "student_number": self.student_number,
                 "attempts": self.attempts,
-                "score": self.score,
-                "success_per_section": self.success_per_section
+                "score": round(self.score, 2),  # Yuvarlama işlemi burada
+                "success_per_section": {k: round(v, 2) for k, v in self.success_per_section.items()}  # Bölüm başarılarını yuvarla
             }
         else:
             users_data[self.username]["student_number"] = self.student_number
             users_data[self.username]["attempts"] = self.attempts
-            users_data[self.username]["score"] = self.score
-            users_data[self.username]["success_per_section"] = self.success_per_section
+            users_data[self.username]["score"] = round(self.score, 2)  # Yuvarlama işlemi burada
+            users_data[self.username]["success_per_section"] = {k: round(v, 2) for k, v in self.success_per_section.items()}  # Bölüm başarılarını yuvarla
 
         with open("users.json", "w") as f:
             json.dump(users_data, f, indent=4)
@@ -65,15 +65,15 @@ class User:
         self.attempts += 1
 
     def update_score(self, section, correct_answers, total_questions):
-        # Bölüm puanını 100 üzerinden normalize et
-        section_score = (correct_answers / total_questions) * 100 if total_questions > 0 else 0
+        # Bölüm puanını 100 üzerinden normalize et ve yuvarla
+        section_score = round((correct_answers / total_questions) * 100, 2) if total_questions > 0 else 0
         self.success_per_section[section] = section_score
         self.calculate_overall_score()
 
     def calculate_overall_score(self):
-        # Genel puanı tüm bölümlerin ortalaması olarak hesapla, 100 üzerinden sınırlı
+        # Genel puanı tüm bölümlerin ortalaması olarak hesapla ve yuvarla
         total_score = sum(self.success_per_section.values())
-        self.score = total_score / len(self.success_per_section)
+        self.score = round(total_score / len(self.success_per_section), 2)
 
     def get_score(self):
-        return self.score
+        return round(self.score, 2)  # Genel başarıyı iki ondalıklı olarak döndür

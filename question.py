@@ -32,7 +32,6 @@ class Question:
         # Sıradaki soruyu al
         selected_question = self.randomized_questions[self.current_question_index]
         self.current_question_index += 1  # Bir sonraki soru için sırayı ilerlet
-  
         print(f"Question: {selected_question['question_text']}")
         print(f"Type: {selected_question['type']}")
 
@@ -61,7 +60,7 @@ class Question:
 
         if user_answer_normalized == correct_answer_normalized:
             print("Correct!")
-            return self.question_score  # Her doğru cevap için standart puan
+            return round(self.question_score, 2)  # Her doğru cevap için yuvarlanmış puan
         else:
             print(f"Wrong! The correct answer is: {correct_answer}")
             return 0
@@ -80,7 +79,9 @@ class Question:
         for answer in user_answer_set:
             if answer in correct_answer_set:
                 user_score += score_per_answer
-        
+
+        # Kullanıcı puanını virgül sonrası iki basamağa yuvarla
+        user_score = round(user_score, 2)  
         print(f"Your score for this question: {user_score}")
         return user_score
 
@@ -92,3 +93,4 @@ class Question:
         except FileNotFoundError:
             print("Error: 'answers.json' file not found.")
             return ""
+
